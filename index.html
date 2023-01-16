@@ -3,6 +3,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WikiData usage</title>
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
   </head>
 
   <body>
@@ -44,7 +45,7 @@
     </ul>
     <iframe
       style="width: 80vw; height: 50vh; border: none"
-      src="https://query.wikidata.org/embed.html#SELECT%20%3Fitem%20%3Fcountry%20%3FcountryLabel%20%3Flinguistic_typology%20%3Flinguistic_typologyLabel%20%3Fwriting_system%20%3Fwriting_systemLabel%20%3Fnumber_of_speakers__writers__or_signers%20%3Fuses_capitalization_for%20%3Fuses_capitalization_forLabel%20%3Fhas_grammatical_person%20%3Fhas_grammatical_personLabel%20%3Fhas_grammatical_gender%20%3Fhas_grammatical_genderLabel%20%3Fhas_grammatical_mood%20%3Fhas_grammatical_moodLabel%20%3Fhas_tense%20%3Fhas_tenseLabel%20%3Fhas_grammatical_case%20%3Fhas_grammatical_caseLabel%20WHERE%20%7B%0A%20%20%3Fitem%20wdt%3AP31%20wd%3AQ34770.%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cen%22.%20%7D%0A%20%20%3Fitem%20wdt%3AP17%20%3Fcountry%3B%0A%20%20%20%20wdt%3AP4132%20%3Flinguistic_typology%3B%0A%20%20%20%20wdt%3AP282%20%3Fwriting_system%3B%0A%20%20%20%20wdt%3AP1098%20%3Fnumber_of_speakers__writers__or_signers.%0A%20%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP5110%20%3Fhas_grammatical_person.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP5109%20%3Fhas_grammatical_gender.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP3161%20%3Fhas_grammatical_mood.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP3103%20%3Fhas_tense.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP2989%20%3Fhas_grammatical_case.%20%7D%0A%7D%0ALIMIT%20500"
+      src="https://query.wikidata.org/embed.html#SELECT%20%3Fitem%20%3Fcountry%20%3FcountryLabel%20%3Flinguistic_typology%20%3Flinguistic_typologyLabel%20%3Fwriting_system%20%3Fwriting_systemLabel%20%3Fnumber_of_speakers__writers__or_signers%20%3Fuses_capitalization_for%20%3Fuses_capitalization_forLabel%20%3Fhas_grammatical_person%20%3Fhas_grammatical_personLabel%20%3Fhas_grammatical_gender%20%3Fhas_grammatical_genderLabel%20%3Fhas_grammatical_mood%20%3Fhas_grammatical_moodLabel%20%3Fhas_tense%20%3Fhas_tenseLabel%20%3Fhas_grammatical_case%20%3Fhas_grammatical_caseLabel%20%3Fimage%20WHERE%20%7B%0A%20%20%3Fitem%20wdt%3AP31%20wd%3AQ34770.%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cen%22.%20%7D%0A%20%20%3Fitem%20wdt%3AP17%20%3Fcountry%3B%0A%20%20%20%20wdt%3AP4132%20%3Flinguistic_typology%3B%0A%20%20%20%20wdt%3AP282%20%3Fwriting_system%3B%0A%20%20%20%20wdt%3AP1098%20%3Fnumber_of_speakers__writers__or_signers.%0A%20%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP5110%20%3Fhas_grammatical_person.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP5109%20%3Fhas_grammatical_gender.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP3161%20%3Fhas_grammatical_mood.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP3103%20%3Fhas_tense.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP2989%20%3Fhas_grammatical_case.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP18%20%3Fimage.%20%7D%0A%7D%0ALIMIT%20500"
       referrerpolicy="origin"
       sandbox="allow-scripts allow-same-origin allow-popups"
     ></iframe>
