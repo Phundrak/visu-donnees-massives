@@ -1,5 +1,5 @@
 <template>
-  <h2>Languages</h2>
+  <h2>Day 1 — Languages</h2>
   <Warn
     >Be aware the queriess in this page can be quite large, the results may take
     some time to appear.</Warn
@@ -55,6 +55,6 @@ WHERE {
 </template>
 
 <script lang="ts" setup>
-import Info from '@/components/Info.vue';
-import Warn from '@/components/Warn.vue';
+import Info from "@/components/Info.vue";
+import Warn from "@/components/Warn.vue";
 </script>
