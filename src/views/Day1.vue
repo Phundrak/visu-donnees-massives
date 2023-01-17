@@ -48,7 +48,7 @@ WHERE {
   </p>
   <Info>Click on the image to open it in a new tab and zoom in.</Info>
   <p style="text-align: center">
-    <a href="/img/group-language-typology.svg" target="_blank">
+    <a href="img/group-language-typology.svg" target="_blank">
       <img src="/img/group-language-typology.svg" class="padded centered" />
     </a>
   </p>
