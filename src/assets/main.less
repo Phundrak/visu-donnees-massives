@@ -12,6 +12,7 @@ html {
 a {
   color: @nord5;
   text-decoration: none;
+  box-shadow: 0 0.2rem 0 @nord9;
 }
 
 iframe {
@@ -99,4 +100,35 @@ img {
 
 .gap {
   gap: 1em;
+}
+
+table {
+  background-color: @nord3;
+}
+
+thead,
+tr,
+th,
+tbody,
+td {
+  .center-text();
+}
+
+th,
+td {
+  padding: 1em;
+}
+
+tr:nth-child(odd) {
+  background-color: @nord2;
+}
+
+tr:nth-child(even) {
+  background-color: @nord1;
+}
+
+thead,
+thead tr,
+thead th {
+  background-color: @nord0;
 }
