@@ -8,165 +8,63 @@
 
   <body>
     <h1>Languages</h1>
-    <div class="warning rounded-corner padded centered">
+    <div class="warning rounded-corner padded centered boxed">
       <p>
         Be aware the queries in this page are quite large and can take some time
         to appear!
       </p>
       <p>You may have to reload the page to get them to load correctly.</p>
     </div>
-    <div class="info"></div>
     <h2>Big Data</h2>
     <p>This wikidata query fetches:</p>
     <ul>
-      <li>The country of the language</li>
+      <li>The name of a language</li>
       <li>Its linguistic typology</li>
-      <li>Its writing system</li>
-      <li>The number of people who speak, write, or sign in that language</li>
+      <li>The number of speakers of the language</li>
+      <li>The language’s linguistic family</li>
     </ul>
-    <p>All elements in this query are required to be non-null.</p>
-    <iframe
-      style="width: 80vw; height: 50vh; border: none"
-      src="https://query.wikidata.org/embed.html#SELECT%20%3Fitem%20%3Fcountry%20%3FcountryLabel%20%3Flinguistic_typology%20%3Flinguistic_typologyLabel%20%3Fwriting_system%20%3Fwriting_systemLabel%20%3Fnumber_of_speakers__writers__or_signers%20WHERE%20%7B%0A%20%20%3Fitem%20wdt%3AP31%20wd%3AQ34770.%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cen%22.%20%7D%0A%20%20%3Fitem%20wdt%3AP17%20%3Fcountry%3B%0A%20%20%20%20wdt%3AP4132%20%3Flinguistic_typology%3B%0A%20%20%20%20wdt%3AP282%20%3Fwriting_system%3B%0A%20%20%20%20wdt%3AP1098%20%3Fnumber_of_speakers__writers__or_signers.%0A%7D"
-      referrerpolicy="origin"
-      sandbox="allow-scripts allow-same-origin allow-popups"
-    ></iframe>
-
-    <h2>High Dimensional Data</h2>
     <p>
-      This is a very similar query to the above, with the added limit of 500
-      languages and the following optional elements shown:
-    </p>
-    <ul>
-      <li>What the language uses capitalization for</li>
-      <li>Which grammatical persons the language has</li>
-      <li>Which grammatical genders the language has</li>
-      <li>Which grammatical moods the language has</li>
-      <li>Which grammatical tenses the language has</li>
-      <li>Which grammatical cases the language has</li>
-    </ul>
-    <iframe
-      style="width: 80vw; height: 50vh; border: none"
-      src="https://query.wikidata.org/embed.html#SELECT%20%3Fitem%20%3Fcountry%20%3FcountryLabel%20%3Flinguistic_typology%20%3Flinguistic_typologyLabel%20%3Fwriting_system%20%3Fwriting_systemLabel%20%3Fnumber_of_speakers__writers__or_signers%20%3Fuses_capitalization_for%20%3Fuses_capitalization_forLabel%20%3Fhas_grammatical_person%20%3Fhas_grammatical_personLabel%20%3Fhas_grammatical_gender%20%3Fhas_grammatical_genderLabel%20%3Fhas_grammatical_mood%20%3Fhas_grammatical_moodLabel%20%3Fhas_tense%20%3Fhas_tenseLabel%20%3Fhas_grammatical_case%20%3Fhas_grammatical_caseLabel%20%3Fimage%20WHERE%20%7B%0A%20%20%3Fitem%20wdt%3AP31%20wd%3AQ34770.%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cen%22.%20%7D%0A%20%20%3Fitem%20wdt%3AP17%20%3Fcountry%3B%0A%20%20%20%20wdt%3AP4132%20%3Flinguistic_typology%3B%0A%20%20%20%20wdt%3AP282%20%3Fwriting_system%3B%0A%20%20%20%20wdt%3AP1098%20%3Fnumber_of_speakers__writers__or_signers.%0A%20%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP5110%20%3Fhas_grammatical_person.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP5109%20%3Fhas_grammatical_gender.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP3161%20%3Fhas_grammatical_mood.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP3103%20%3Fhas_tense.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP2989%20%3Fhas_grammatical_case.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP18%20%3Fimage.%20%7D%0A%7D%0ALIMIT%20500"
-      referrerpolicy="origin"
-      sandbox="allow-scripts allow-same-origin allow-popups"
-    ></iframe>
-    <h1>Visualization with RawGraphs</h1>
-    <p>
-      Below is a visual representation of the relationship between a small set
-      of languages, their writing system, and the country in which these
-      languages are spoken. The initial data was limited to 100 entries.
-    </p>
-    <p style="text-align: center">
-      <img src="img/script-language-country.svg" class="padded centered" />
+      All elements in this query are required to be non-null. By default, the
+      bubble chart show shows the amount of speakers of each language.
     </p>
     <details>
-      <summary>CSV source</summary>
-      <pre class="rounded-corner padded centered">
-        <code>
-item,itemLabel,country,countryLabel,writing_system,writing_systemLabel
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q16,Canada,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q31,Belgium,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q32,Luxembourg,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q38,Italy,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q39,Switzerland,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q142,France,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q228,Andorra,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q235,Monaco,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q237,Vatican City,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q262,Algeria,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q424,Cambodia,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q657,Chad,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q668,India,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q686,Vanuatu,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q785,Jersey,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q790,Haiti,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q822,Lebanon,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q881,Vietnam,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q912,Mali,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q929,Central African Republic,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q945,Togo,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q962,Benin,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q965,Burkina Faso,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q967,Burundi,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q970,Comoros,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q971,Republic of the Congo,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q974,Democratic Republic of the Congo,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q977,Djibouti,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q983,Equatorial Guinea,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q1000,Gabon,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q1006,Guinea,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q1008,Ivory Coast,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q1009,Cameroon,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q1019,Madagascar,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q1025,Mauritania,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q1027,Mauritius,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q1028,Morocco,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q1032,Niger,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q1037,Rwanda,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q1041,Senegal,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q1042,Seychelles,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q150,French,http://www.wikidata.org/entity/Q25230,Bailiwick of Guernsey,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q188,German,http://www.wikidata.org/entity/Q31,Belgium,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q188,German,http://www.wikidata.org/entity/Q31,Belgium,http://www.wikidata.org/entity/Q912243,German alphabet
-http://www.wikidata.org/entity/Q188,German,http://www.wikidata.org/entity/Q32,Luxembourg,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q188,German,http://www.wikidata.org/entity/Q32,Luxembourg,http://www.wikidata.org/entity/Q912243,German alphabet
-http://www.wikidata.org/entity/Q188,German,http://www.wikidata.org/entity/Q35,Denmark,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q188,German,http://www.wikidata.org/entity/Q35,Denmark,http://www.wikidata.org/entity/Q912243,German alphabet
-http://www.wikidata.org/entity/Q188,German,http://www.wikidata.org/entity/Q36,Poland,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q188,German,http://www.wikidata.org/entity/Q36,Poland,http://www.wikidata.org/entity/Q912243,German alphabet
-http://www.wikidata.org/entity/Q188,German,http://www.wikidata.org/entity/Q38,Italy,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q188,German,http://www.wikidata.org/entity/Q38,Italy,http://www.wikidata.org/entity/Q912243,German alphabet
-http://www.wikidata.org/entity/Q188,German,http://www.wikidata.org/entity/Q39,Switzerland,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q188,German,http://www.wikidata.org/entity/Q39,Switzerland,http://www.wikidata.org/entity/Q912243,German alphabet
-http://www.wikidata.org/entity/Q188,German,http://www.wikidata.org/entity/Q40,Austria,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q188,German,http://www.wikidata.org/entity/Q40,Austria,http://www.wikidata.org/entity/Q912243,German alphabet
-http://www.wikidata.org/entity/Q188,German,http://www.wikidata.org/entity/Q142,France,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q188,German,http://www.wikidata.org/entity/Q142,France,http://www.wikidata.org/entity/Q912243,German alphabet
-http://www.wikidata.org/entity/Q188,German,http://www.wikidata.org/entity/Q183,Germany,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q188,German,http://www.wikidata.org/entity/Q183,Germany,http://www.wikidata.org/entity/Q912243,German alphabet
-http://www.wikidata.org/entity/Q188,German,http://www.wikidata.org/entity/Q213,Czech Republic,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q188,German,http://www.wikidata.org/entity/Q213,Czech Republic,http://www.wikidata.org/entity/Q912243,German alphabet
-http://www.wikidata.org/entity/Q188,German,http://www.wikidata.org/entity/Q347,Liechtenstein,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q188,German,http://www.wikidata.org/entity/Q347,Liechtenstein,http://www.wikidata.org/entity/Q912243,German alphabet
-http://www.wikidata.org/entity/Q256,Turkish,http://www.wikidata.org/entity/Q41,Greece,http://www.wikidata.org/entity/Q637405,Turkish alphabet
-http://www.wikidata.org/entity/Q256,Turkish,http://www.wikidata.org/entity/Q43,Turkey,http://www.wikidata.org/entity/Q637405,Turkish alphabet
-http://www.wikidata.org/entity/Q256,Turkish,http://www.wikidata.org/entity/Q219,Bulgaria,http://www.wikidata.org/entity/Q637405,Turkish alphabet
-http://www.wikidata.org/entity/Q256,Turkish,http://www.wikidata.org/entity/Q229,Cyprus,http://www.wikidata.org/entity/Q637405,Turkish alphabet
-http://www.wikidata.org/entity/Q256,Turkish,http://www.wikidata.org/entity/Q23681,Turkish Republic of Northern Cyprus,http://www.wikidata.org/entity/Q637405,Turkish alphabet
-http://www.wikidata.org/entity/Q294,Icelandic,http://www.wikidata.org/entity/Q16,Canada,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q294,Icelandic,http://www.wikidata.org/entity/Q16,Canada,http://www.wikidata.org/entity/Q372785,Icelandic alphabet
-http://www.wikidata.org/entity/Q294,Icelandic,http://www.wikidata.org/entity/Q30,United States of America,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q294,Icelandic,http://www.wikidata.org/entity/Q30,United States of America,http://www.wikidata.org/entity/Q372785,Icelandic alphabet
-http://www.wikidata.org/entity/Q294,Icelandic,http://www.wikidata.org/entity/Q35,Denmark,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q294,Icelandic,http://www.wikidata.org/entity/Q35,Denmark,http://www.wikidata.org/entity/Q372785,Icelandic alphabet
-http://www.wikidata.org/entity/Q294,Icelandic,http://www.wikidata.org/entity/Q189,Iceland,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q294,Icelandic,http://www.wikidata.org/entity/Q189,Iceland,http://www.wikidata.org/entity/Q372785,Icelandic alphabet
-http://www.wikidata.org/entity/Q397,Latin,http://www.wikidata.org/entity/Q237,Vatican City,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q397,Latin,http://www.wikidata.org/entity/Q237,Vatican City,http://www.wikidata.org/entity/Q41670,Latin alphabet
-http://www.wikidata.org/entity/Q652,Italian,http://www.wikidata.org/entity/Q38,Italy,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q652,Italian,http://www.wikidata.org/entity/Q38,Italy,http://www.wikidata.org/entity/Q550383,Italian alphabet
-http://www.wikidata.org/entity/Q652,Italian,http://www.wikidata.org/entity/Q39,Switzerland,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q652,Italian,http://www.wikidata.org/entity/Q39,Switzerland,http://www.wikidata.org/entity/Q550383,Italian alphabet
-http://www.wikidata.org/entity/Q652,Italian,http://www.wikidata.org/entity/Q237,Vatican City,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q652,Italian,http://www.wikidata.org/entity/Q237,Vatican City,http://www.wikidata.org/entity/Q550383,Italian alphabet
-http://www.wikidata.org/entity/Q652,Italian,http://www.wikidata.org/entity/Q238,San Marino,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q652,Italian,http://www.wikidata.org/entity/Q238,San Marino,http://www.wikidata.org/entity/Q550383,Italian alphabet
-http://www.wikidata.org/entity/Q809,Polish,http://www.wikidata.org/entity/Q36,Poland,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q1321,Spanish,http://www.wikidata.org/entity/Q29,Spain,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q1321,Spanish,http://www.wikidata.org/entity/Q29,Spain,http://www.wikidata.org/entity/Q285126,Spanish alphabet
-http://www.wikidata.org/entity/Q1321,Spanish,http://www.wikidata.org/entity/Q30,United States of America,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q1321,Spanish,http://www.wikidata.org/entity/Q30,United States of America,http://www.wikidata.org/entity/Q285126,Spanish alphabet
-http://www.wikidata.org/entity/Q1321,Spanish,http://www.wikidata.org/entity/Q77,Uruguay,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q1321,Spanish,http://www.wikidata.org/entity/Q77,Uruguay,http://www.wikidata.org/entity/Q285126,Spanish alphabet
-http://www.wikidata.org/entity/Q1321,Spanish,http://www.wikidata.org/entity/Q96,Mexico,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q1321,Spanish,http://www.wikidata.org/entity/Q96,Mexico,http://www.wikidata.org/entity/Q285126,Spanish alphabet
-http://www.wikidata.org/entity/Q1321,Spanish,http://www.wikidata.org/entity/Q228,Andorra,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q1321,Spanish,http://www.wikidata.org/entity/Q228,Andorra,http://www.wikidata.org/entity/Q285126,Spanish alphabet
-http://www.wikidata.org/entity/Q1321,Spanish,http://www.wikidata.org/entity/Q241,Cuba,http://www.wikidata.org/entity/Q8229,Latin script
-http://www.wikidata.org/entity/Q1321,Spanish,http://www.wikidata.org/entity/Q241,Cuba,http://www.wikidata.org/entity/Q285126,Spanish alphabet
-        </code>
-    </pre>
+      <summary>SparkQL query used</summary>
+      <pre>
+          <code>
+#defaultView:BubbleChart
+SELECT
+?itemLabel
+?subclass_of
+?subclass_ofLabel
+?linguistic_typology
+?linguistic_typologyLabel
+?number_of_speakers__writers__or_signers
+WHERE {
+  ?item wdt:P31 wd:Q34770.
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+  ?item wdt:P4132 ?linguistic_typology;
+    wdt:P1098 ?number_of_speakers__writers__or_signers;
+    wdt:P279 ?subclass_of.
+}</code>
+        </pre>
     </details>
+    <iframe
+      style="width: 100%; height: 80vh; border: none"
+      src="https://query.wikidata.org/embed.html#%23defaultView%3ABubbleChart%0ASELECT%20%0A%3FitemLabel%0A%3Fsubclass_of%0A%3Fsubclass_ofLabel%0A%3Flinguistic_typology%0A%3Flinguistic_typologyLabel%0A%3Fnumber_of_speakers__writers__or_signers%0AWHERE%20%7B%0A%20%20%3Fitem%20wdt%3AP31%20wd%3AQ34770.%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%2Cen%22.%20%7D%0A%20%20%3Fitem%20wdt%3AP4132%20%3Flinguistic_typology%3B%0A%20%20%20%20wdt%3AP1098%20%3Fnumber_of_speakers__writers__or_signers%3B%0A%20%20%20%20wdt%3AP279%20%3Fsubclass_of.%0A%7D"
+      referrerpolicy="origin"
+      sandbox="allow-scripts allow-same-origin allow-popups"
+    ></iframe>
+    <p>
+      Below the same data is used to group languages by their linguistic
+      typology, rendered with RAWGraphs.
+    </p>
+    <div class="info rounded-corner padded centered boxed">
+      <p>Click on the image to open it in a new tab and zoom in.</p>
+    </div>
+    <p style="text-align: center">
+      <a href="img/group-language-typology.svg" target="_blank">
+        <img src="img/group-language-typology.svg" class="padded centered" />
+      </a>
+    </p>
   </body>
 </html>

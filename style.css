@@ -21,10 +21,17 @@ h2 {
     color: #81a1c1;
 }
 
-.warning {
+.boxed {
     max-width: 800px;
-    background-color: #bf616a;
     text-align: center;
+}
+
+.warning {
+    background-color: #bf616a;
+}
+
+.info {
+    background-color: #a3be8c;
 }
 
 pre {
@@ -43,4 +50,8 @@ pre {
 
 .centered {
     margin: 0 auto;
+}
+
+img {
+    max-width: 100%;
 }
