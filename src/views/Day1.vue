@@ -1,7 +1,7 @@
 <template>
   <h2>Day 1 — Languages</h2>
   <Warn
-    >Be aware the queriess in this page can be quite large, the results may take
+    >Be aware the queries in this page can be quite large, the results may take
     some time to appear.</Warn
   >
   <p>This wikidata query fetches</p>
